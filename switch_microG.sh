@@ -92,6 +92,8 @@ switch_zpatch $BRANCH3 R
 
 switch_branches $BRANCH1 art
 switch_branches $BRANCH2 bionic
+switch_branches $BRANCH3 build/make
+switch_branches $BRANCH3 build/soong
 switch_branches $BRANCH1 frameworks/base
 switch_branches $BRANCH1 frameworks/native
 switch_branches $BRANCH1 frameworks/opt/net/wifi
@@ -104,10 +106,10 @@ switch_branches $BRANCH1 packages/apps/PermissionController
 switch_branches $BRANCH1 packages/apps/Settings
 switch_branches $BRANCH1 packages/apps/Trebuchet
 switch_branches $BRANCH1 packages/modules/NetworkStack
-switch_branches $BRANCH1 system/core
-switch_branches $BRANCH1 system/sepolicy
+switch_branches $BRANCH3 system/core
+switch_branches $BRANCH3 system/sepolicy
 switch_branches $BRANCH1 vendor/lineage
-switch_branches $BRANCH1 .repo/local_manifests
+switch_branches $BRANCH3 .repo/local_manifests
 #switch_branches $BRANCH4 OTA
 
 switch_zpatch $BRANCH1 $PATCHV
