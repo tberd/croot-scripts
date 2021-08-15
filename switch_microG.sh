@@ -92,7 +92,7 @@ switch_zpatch $BRANCH3 R
 
 switch_branches $BRANCH1 art
 switch_branches $BRANCH2 bionic
-switch_branches $BRANCH3 build/make
+switch_branches $BRANCH1 build/make
 switch_branches $BRANCH3 build/soong
 switch_branches $BRANCH1 frameworks/base
 switch_branches $BRANCH1 frameworks/native
