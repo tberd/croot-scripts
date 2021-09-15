@@ -102,7 +102,6 @@ switch_branches $BRANCH1 packages/apps/Bluetooth
 switch_branches $BRANCH1 packages/apps/Camera2
 switch_branches $BRANCH1 packages/apps/LineageParts
 switch_branches $BRANCH1 packages/apps/Nfc
-switch_branches $BRANCH1 packages/apps/PermissionController
 switch_branches $BRANCH1 packages/apps/Settings
 switch_branches $BRANCH1 packages/apps/Trebuchet
 switch_branches $BRANCH1 packages/modules/NetworkStack
