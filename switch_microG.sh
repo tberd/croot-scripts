@@ -109,6 +109,6 @@ switch_branches $BRANCH3 system/core
 switch_branches $BRANCH3 system/sepolicy
 switch_branches $BRANCH1 vendor/lineage
 switch_branches $BRANCH3 .repo/local_manifests
-#switch_branches $BRANCH4 OTA
+switch_branches $BRANCH4 OTA
 
 switch_zpatch $BRANCH1 $PATCHV
