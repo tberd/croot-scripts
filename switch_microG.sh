@@ -54,6 +54,8 @@ case "$1" in
     BRANCH2="lineage-18.1"
     BRANCH3="lin-18.1-microG"
     BRANCH4="lin-18.1-microG"
+    BRANCH5="lin-18.1-microG"
+    BRANCHZ="lin-18.1-microG"
     PATCHV="S"
     ;;
   hmalloc)
@@ -61,6 +63,8 @@ case "$1" in
     BRANCH2="lin-18.1-hmalloc"
     BRANCH3="lin-18.1-hmalloc"
     BRANCH4="lin-18.1-microG"
+    BRANCH5="lin-18.1-microG"
+    BRANCHZ="lin-18.1-hmalloc"
     PATCHV="S"
     ;;
   default)
@@ -68,6 +72,8 @@ case "$1" in
     BRANCH2="lineage-18.1"
     BRANCH3="lineage-18.1"
     BRANCH4="lineage-18.1"
+    BRANCH5="lineage-18.1"
+    BRANCHZ="lineage-18.1"
     PATCHV="S"
     ;;
   reference)
@@ -75,29 +81,51 @@ case "$1" in
     BRANCH2="lineage-18.1"
     BRANCH3="lineage-18.1"
     BRANCH4="changelog"
+    BRANCH5="lineage-18.1"
+    BRANCHZ="lineage-18.1"
     PATCHV="N"
+    ;;
+  GmsCompat)
+    BRANCH1="lin-18.1-microG"
+    BRANCH2="lin-18.1-hmalloc"
+    BRANCH3="lin-18.1-hmalloc"
+    BRANCH4="lin-18.1-GmsCompat"
+    BRANCH5="lin-18.1-GmsCompat"
+    BRANCHZ="lin-18.1-GmsCompat"
+    PATCHV="S"
+    ;;
+  GmsClm)
+    BRANCH1="lin-18.1-microG"
+    BRANCH2="lineage-18.1"
+    BRANCH3="lin-18.1-microG"
+    BRANCH4="lin-18.1-GmsCompat"
+    BRANCH5="lin-18.1-GmsCompat"
+    BRANCHZ="lin-18.1-GmsClm"
+    PATCHV="S"
     ;;
   *)
     echo "usage: switch_microg.sh default | microG | reference"
     echo "-"
     echo "  default   - LineageOS 18.1"
-    echo "  microG    - hardened microG build"
+    echo "  microG    - hardened microG build (low memory devices)"
     echo "  hmalloc   - hardened microG build with hardened-malloc"
+    echo "  GmsCompat - hardened build with sandboxed Google Play services"
+    echo "  GmsClm    - hardened build with sandboxed GMS (low memory devices)"
     echo "  reference - 100% LineageOS 18.1 (no patches - for 'repo sync')"
     exit
     ;;
 esac
 
-switch_zpatch $BRANCH3 R
+switch_zpatch $BRANCHZ R
 
 switch_branches $BRANCH1 art
 switch_branches $BRANCH2 bionic
 switch_branches $BRANCH1 build/make
 switch_branches $BRANCH3 build/soong
-switch_branches $BRANCH1 frameworks/base
+switch_branches $BRANCH5 frameworks/base
 switch_branches $BRANCH1 frameworks/native
 switch_branches $BRANCH1 frameworks/opt/net/wifi
-switch_branches $BRANCH1 libcore
+switch_branches $BRANCH5 libcore
 switch_branches $BRANCH1 packages/apps/Bluetooth
 switch_branches $BRANCH1 packages/apps/Camera2
 switch_branches $BRANCH1 packages/apps/LineageParts
@@ -107,8 +135,8 @@ switch_branches $BRANCH1 packages/apps/Trebuchet
 switch_branches $BRANCH1 packages/modules/NetworkStack
 switch_branches $BRANCH3 system/core
 switch_branches $BRANCH3 system/sepolicy
-switch_branches $BRANCH1 vendor/lineage
-switch_branches $BRANCH3 .repo/local_manifests
+switch_branches $BRANCH5 vendor/lineage
+switch_branches $BRANCHZ .repo/local_manifests
 switch_branches $BRANCH4 OTA
 
 switch_zpatch $BRANCH1 $PATCHV
