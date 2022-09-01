@@ -128,6 +128,7 @@ switch_branches $BRANCH1 frameworks/opt/net/wifi
 switch_branches $BRANCH5 libcore
 switch_branches $BRANCH1 packages/apps/Bluetooth
 switch_branches $BRANCH1 packages/apps/Camera2
+switch_branches $BRANCH1 packages/apps/Contacts
 switch_branches $BRANCH1 packages/apps/LineageParts
 switch_branches $BRANCH1 packages/apps/Nfc
 switch_branches $BRANCH1 packages/apps/Settings
