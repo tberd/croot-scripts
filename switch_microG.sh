@@ -21,7 +21,7 @@ switch_branches() {
   fi
   if [ -n "$(git branch --list $1)" ]; then
     git checkout $1
-    git pull $REMOTE $1
+    git pull $REMOTE $1 --ff-only
   else
     git fetch $REMOTE $1
     git checkout -b $1 $REMOTE/$1
